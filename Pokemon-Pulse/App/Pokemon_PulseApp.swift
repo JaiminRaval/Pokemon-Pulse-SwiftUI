@@ -14,7 +14,7 @@ struct Pokemon_PulseApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PokemonHomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
