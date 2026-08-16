@@ -12,6 +12,7 @@ struct PokemonHomeView: View {
     var body: some View {
         NavigationStack {
             List {
+                Text("pika pika! Pikachu!")
                 
                 
             }
