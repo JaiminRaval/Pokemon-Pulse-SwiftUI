@@ -13,6 +13,7 @@ struct Pokemon: Codable {
     let ability: String
     let attackType: String
     let color: String
+    let img: String
     let gen: Int16
     let level: Int16
     let name: String

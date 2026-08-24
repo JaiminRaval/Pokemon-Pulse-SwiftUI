@@ -6,3 +6,5 @@
 //
 
 import Foundation
+
+//  Created for future ref when we call data from pokemon-RESTFUL API.
