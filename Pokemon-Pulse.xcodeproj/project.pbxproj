@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		070A7AAE303D54B7006333BD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 070A7AAD303D54B7006333BD /* FirebaseAnalytics */; };
+		070A7AB0303D54B7006333BD /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 070A7AAF303D54B7006333BD /* FirebaseCore */; };
+		070A7AB2303D54B7006333BD /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 070A7AB1303D54B7006333BD /* FirebaseCrashlytics */; };
+		070A7AB4303D54B7006333BD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 070A7AB3303D54B7006333BD /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		07934E08302C303F00EB3511 /* Pokemon-Pulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pokemon-Pulse.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070A7AB2303D54B7006333BD /* FirebaseCrashlytics in Frameworks */,
+				070A7AB4303D54B7006333BD /* FirebaseFirestore in Frameworks */,
+				070A7AB0303D54B7006333BD /* FirebaseCore in Frameworks */,
+				070A7AAE303D54B7006333BD /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +76,10 @@
 			);
 			name = "Pokemon-Pulse";
 			packageProductDependencies = (
+				070A7AAD303D54B7006333BD /* FirebaseAnalytics */,
+				070A7AAF303D54B7006333BD /* FirebaseCore */,
+				070A7AB1303D54B7006333BD /* FirebaseCrashlytics */,
+				070A7AB3303D54B7006333BD /* FirebaseFirestore */,
 			);
 			productName = "Pokemon-Pulse";
 			productReference = 07934E08302C303F00EB3511 /* Pokemon-Pulse.app */;
@@ -94,6 +109,9 @@
 			);
 			mainGroup = 07934DFF302C303F00EB3511;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 07934E09302C303F00EB3511 /* Products */;
 			projectDirPath = "";
@@ -338,6 +356,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.18.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		070A7AAD303D54B7006333BD /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		070A7AAF303D54B7006333BD /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		070A7AB1303D54B7006333BD /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		070A7AB3303D54B7006333BD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 070A7AAC303D54B7006333BD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 07934E00302C303F00EB3511 /* Project object */;
 }

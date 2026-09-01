@@ -9,7 +9,10 @@ import SwiftUI
 
 struct PokemonAddView: View {
     var body: some View {
-        Text("Hello, World!")
+
+        Form {
+//            TextField
+        }
     }
 }
 
