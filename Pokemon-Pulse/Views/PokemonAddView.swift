@@ -209,21 +209,21 @@ struct PokemonAddView: View {
 //        dismiss()
     }
 
-//    private func swatch(for name: String) -> Color {
-//        switch name {
-//        case "Red": return .red
-//        case "Blue": return .blue
-//        case "Yellow": return .yellow
-//        case "Green": return .green
-//        case "Black": return .black
-//        case "Brown": return .brown
-//        case "Purple": return .purple
-//        case "Gray": return .gray
-//        case "White": return .white
-//        case "Pink": return .pink
-//        default: return .gray
-//        }
-//    }
+    private func swatch(for name: String) -> Color {
+        switch name {
+        case "Red": return .red
+        case "Blue": return .blue
+        case "Yellow": return .yellow
+        case "Green": return .green
+        case "Black": return .black
+        case "Brown": return .brown
+        case "Purple": return .purple
+        case "Gray": return .gray
+        case "White": return .white
+        case "Pink": return .pink
+        default: return .gray
+        }
+    }
 }
 
 // MARK: - Preview
