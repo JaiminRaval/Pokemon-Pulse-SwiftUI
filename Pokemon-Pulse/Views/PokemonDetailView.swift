@@ -8,32 +8,47 @@
 import SwiftUI
 
 struct PokemonDetailView: View {
-    @StateObject private var viewModel = PokemonDetailViewModel()
+    @StateObject private var viewModel: PokemonDetailViewModel
+    @State private var isEditing = false
+
+    init(pokemon: PokemonModel) {
+        _viewModel = StateObject(wrappedValue: PokemonDetailViewModel(pokemon: pokemon))
+    }
 
     var body: some View {
-        VStack(spacing: 16) {
-            if let pokemon = viewModel.pokemon {
-                PokemonArtworkView(urlString: pokemon.img)
+        ScrollView {
+            VStack(spacing: 16) {
+                PokemonArtworkView(urlString: viewModel.imageURL)
                     .frame(width: 220, height: 220)
 
-                Text(pokemon.name)
+                Text(viewModel.name)
                     .font(.title.bold())
 
-                Text(pokemon.type)
+                Text(viewModel.type)
                     .foregroundStyle(.secondary)
 
                 VStack(alignment: .leading, spacing: 8) {
-                    row("ability", pokemon.ability)
-                    row("nature", pokemon.nature)
-                    row("level", "\(pokemon.level)")
-                    row("gen", "\(pokemon.gen)")
+                    row("ability", viewModel.ability)
+                    row("nature", viewModel.nature)
+                    row("attack", viewModel.attackType)
+                    row("color", viewModel.color)
+                    row("level", viewModel.level)
+                    row("gen", viewModel.gen)
                 }
                 .padding(.top, 8)
-            } else {
-                ProgressView()
+            }
+            .padding()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button("Edit") { isEditing = true }
+        }
+        // redraw with the saved values once the edit sheet closes
+        .sheet(isPresented: $isEditing, onDismiss: { viewModel.refresh() }) {
+            NavigationStack {
+                PokemonUpdateView(pokemon: viewModel.pokemon)
             }
         }
-        .padding()
     }
 
     // small helper, keeps body readable
@@ -48,5 +63,7 @@ struct PokemonDetailView: View {
 }
 
 #Preview {
-    PokemonDetailView()
+    NavigationStack {
+        PokemonDetailView(pokemon: .preview)
+    }
 }

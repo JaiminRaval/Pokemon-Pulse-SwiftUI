@@ -13,21 +13,30 @@ struct PokemonArtworkView: View {
     let urlString: String
 
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFit()
-            case .failure:
-                Image(systemName: "photo")
-                    .foregroundStyle(.secondary)
-            @unknown default:
-                EmptyView()
+        if let url = URL(string: urlString), !urlString.isEmpty {
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                case .failure:
+                    placeholder
+                @unknown default:
+                    EmptyView()
+                }
             }
+        } else {
+            // no link entered, skip the network call
+            placeholder
         }
+    }
+
+    private var placeholder: some View {
+        Image(systemName: "photo")
+            .foregroundStyle(.secondary)
     }
 }
 

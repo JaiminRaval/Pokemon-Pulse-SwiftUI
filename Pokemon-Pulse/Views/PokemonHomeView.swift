@@ -6,21 +6,29 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct PokemonHomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                Text("pika pika! Pikachu!")
-                
-                
+                NavigationLink {
+                    PokemonAddView()
+                } label: {
+                    Label("Add new Pokemon", systemImage: "plus.circle")
+                }
+
+                NavigationLink {
+                    PokemonListView()
+                } label: {
+                    Label("View all Pokemon", systemImage: "list.bullet")
+                }
             }
+            .navigationTitle("Pokemon Pulse")
         }
     }
 }
 
-
 #Preview {
     PokemonHomeView()
 }
+
